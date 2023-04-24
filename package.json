@@ -1,0 +1,68 @@
+{
+  "name": "SplashscreenTest",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "set-assets": "npx react-native link",
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "start": "react-native start",
+    "test": "jest",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "build-and": "cd android && ./gradlew clean && ./gradlew assembleRelease && cd ../",
+    "build-ios": "react-native run-ios --configuration Release",
+    "build:android": "react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res/",
+    "build:ios": "react-native bundle --entry-file='index.js' --bundle-output='./ios/main.jsbundle' --dev=false --platform='ios'",
+    "bundle-and": "cd android && ./gradlew clean && ./gradlew bundleRelease && cd ../",
+    "prettier-fix": "prettier --write **/*.js",
+    "prettier-check": "prettier --list-different **/*.js",
+    "lint-fix": "eslint --fix .",
+    "lint-check": "eslint .",
+    "rename": "react-native-rename",
+    "clean": "cd android && ./gradlew clean && watchman watch-del-all && cd ..",
+    "pod": "cd ios && pod install && cd ..",
+    "pod-m1": "cd ios && sudo arch -x86_64 gem install ffi && arch -x86_64 pod install && cd ..",
+    "pod-update": "pod --repo-update",
+    "pod-update-m1": "cd ios && sudo arch -x86_64 gem install ffi && arch -x86_64 pod install && arch -x86_64 pod update",
+    "pod_update_m1": "cd ios && arch -x86_64 sudo gem install cocoapods && arch -x86_64 pod repo update && arch -x86_64 pod install",
+    "clean:ios": "cd ios && xcodebuild clean && cd ../",
+    "clean:android": "cd android && ./gradlew clean && cd ../",
+    "clean-xcode": "rm -rf ~/Library/Developer/Xcode/DerivedData",
+    "sha1": "cd android && ./gradlew signingReport && cd ../",
+    "pod-lang": "cd ios && LANG=en_US.UTF-8 pod install && cd .."
+  },
+  "dependencies": {
+    "react": "18.1.0",
+    "react-native": "0.70.6",
+    "react-native-splash-screen": "^3.3.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.9",
+    "@babel/runtime": "^7.12.5",
+    "@react-native-community/eslint-config": "^2.0.0",
+    "@tsconfig/react-native": "^2.0.2",
+    "@types/jest": "^26.0.23",
+    "@types/react": "^18.0.21",
+    "@types/react-native": "^0.70.6",
+    "@types/react-test-renderer": "^18.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.37.0",
+    "@typescript-eslint/parser": "^5.37.0",
+    "babel-jest": "^26.6.3",
+    "eslint": "^7.32.0",
+    "jest": "^26.6.3",
+    "metro-react-native-babel-preset": "0.72.3",
+    "react-test-renderer": "18.1.0",
+    "typescript": "^4.8.3"
+  },
+  "jest": {
+    "preset": "react-native",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ]
+  }
+}
